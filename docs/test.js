@@ -111,10 +111,26 @@ window.addEventListener('DOMContentLoaded', () => {
     next.addEventListener('click', () => {
         updateFields(rows[currentStudent]);
         currentStudent++;
+        if (currentStudent === 0) {
+            currentStudent++;
+            return;
+        }
+        if (currentStudent > totalStudents){
+            currentStudent--;
+            return;
+        }
         document.getElementById('current-student').innerHTML = currentStudent;
     })
     previous.addEventListener('click', () => {
         currentStudent--;
+        if (currentStudent === 0) {
+            currentStudent++;
+            return;
+        }
+        if (currentStudent > totalStudents){
+            currentStudent--;
+            return;
+        }
         updateFields(rows[currentStudent]);
         document.getElementById('current-student').innerHTML = currentStudent;
     })
